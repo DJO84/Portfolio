@@ -1,4 +1,7 @@
 #!/bin/bash 
+#Copying a folder
+#David Olsen
+#20/07/2021
 
 read -p "type the name of the folder you would like to copy: " folderName 
 
