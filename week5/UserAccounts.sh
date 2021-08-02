@@ -1,5 +1,5 @@
 #!/bin/bash
-#Displaying passwd file edited and in a viewable table
+#Displaying passwd file edited and in a viewable table With the addon of filtering listed users based on their default shell location
 #David Olsen
 #02/08/2021
 
@@ -14,8 +14,9 @@ awk 'BEGIN {
 }
 
 {
+    if($7 == "/bin/bash") #New addition to file to filter output to only users with /bin/bash listed as their default shell in coloumn $7
+    printf("| \033[33m%-16s\033[0m | \033[35m%-6s\033[0m | \033[35m%-7s\033[0m | \033[35m%-35s\033[0m | \033[35m%-20s\033[0m |\n", $1, $3, $4, $6, $7);
 
-    printf("| \033[33m%-16s\033[0m | \033[35m%-6s\033[0m | \033[35m%-7s\033[0m | \033[35m%-35s\033[0m | \033[35m%-20s\033[0m |\n", $1, $3, $4, $6, $7); #Making sure to leave out fields not needed
 }
 
 END {
